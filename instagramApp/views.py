@@ -5,3 +5,8 @@ from django.http import HttpResponse
 def index(request):
 
     return render(request,'home.html')
+
+
+def created_post(request):
+    
+    return render(request, 'post.html')

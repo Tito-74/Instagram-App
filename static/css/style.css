@@ -6,6 +6,12 @@ h1
   margin: 0;
   box-sizing: border-box;
 }
+.container{
+    width: 50%;
+    min-width: 450px;
+    padding-top: 0;
+    margin: 0 auto; 
+}
 
 /* Styling Home page */
 .user{

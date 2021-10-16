@@ -8,5 +8,9 @@ def index(request):
 
 
 def created_post(request):
-    
+
     return render(request, 'post.html')
+
+def search_results(request):
+
+    return render(request, 'all-instagram/search.html')

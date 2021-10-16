@@ -16,6 +16,17 @@ class Post(models.Model):
     # comments = models.CharField(max_length=100, blank=True)
     time_created = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.name
+
+    #Save image
+    def save_post(self):
+        self.save()
+
+    #Delete image
+    def delete_post(self):
+        self.delete() 
+
 class Comments(models.Model):
     comment = models.TextField(blank=True)
     post = models.ForeignKey(Post,on_delete=models.CASCADE)

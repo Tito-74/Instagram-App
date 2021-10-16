@@ -25,7 +25,12 @@ class Post(models.Model):
 
     #Delete image
     def delete_post(self):
-        self.delete() 
+        self.delete()
+
+    # @classmethod
+    # def get_profile_images(cls, profile):
+    #     images = Image.objects.filter(profile__pk=profile)
+    #     return images  
 
 class Comments(models.Model):
     comment = models.TextField(blank=True)

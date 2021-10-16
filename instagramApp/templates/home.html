@@ -9,10 +9,8 @@
   
     <div class="card mb-3">
         <div class="user">
-            {% for item in profile %}
-                <img src="{{ item.profile_photo.url }}" width="60" height="50" alt="">
-                <h2>{{item.user}}</h2> 
-            {% endfor %} 
+                <img src="{{ item.profile.profile_photo.url }}" width="60" height="50" alt="">
+                <h2>{{item.profile.user}}</h2> 
         </div>
         <hr>
         <div class="image">
@@ -20,7 +18,6 @@
             <div class="card-body">
                 <h5 class="card-title">{{ item.name }} </h5>
                 <p class="card-text">{{ item.caption }}</p>
-                <!-- <h2>{{item.}}</h2> -->
                 <p class="card-text"><small class="text-muted">{{ item.time_created }}</small></p>
             </div>
 
@@ -34,8 +31,6 @@
        <h2>{{item.profile_photo}}</h2> 
       {% endfor %}  -->
 
-  
-    </div>
    
   
     {% empty %}

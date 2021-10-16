@@ -2,22 +2,41 @@
 
 {% block content %}
 {{block.super}}
-<h2>Hello Welcome to Instagram Application 1</h2>
 <div class="container">
 
     <!-- Looping through post   -->
     {% for item in posts %}
   
-    <div class="row">
-      <!-- displaying images -->
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <h2 class="text-center"> {{ item.name }} </h2>
-        <img src="{{ item.image.url }}" alt="">
+    <div class="card mb-3">
+        <div class="user">
+            {% for item in profile %}
+                <img src="{{ item.profile_photo.url }}" width="60" height="50" alt="">
+                <h2>{{item.user}}</h2> 
+            {% endfor %} 
+        </div>
+        <hr>
+        <div class="image">
+            <img src="{{ item.image.url }}" class="card-img-top" width="500" height="450"  alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ item.name }} </h5>
+                <p class="card-text">{{ item.caption }}</p>
+                <!-- <h2>{{item.}}</h2> -->
+                <p class="card-text"><small class="text-muted">{{ item.time_created }}</small></p>
+            </div>
+
+        </div>
+        
       </div>
-      {% for item in profile %}
+      
+      <!-- {% for item in profile %}
       <h1>{{item.bio}}</h1>
+      <img src="{{ item.profile_photo.url }}" alt="">
+       <h2>{{item.profile_photo}}</h2> 
+      {% endfor %}  -->
+
   
     </div>
+   
   
     {% empty %}
     <div class="row">

@@ -2,3 +2,24 @@ h1
 {
   color: green;
 }
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Styling Home page */
+.user{
+  background-color: #fff;
+  display: flex;
+
+}
+.user img{
+  margin-top: 1.5rem;
+  border-radius: 50%;
+  border: 2px solid #C13584;;
+}
+.user h2{
+  margin-left: 1rem;
+}
+
+/* end home page */

@@ -3,11 +3,13 @@ from django.http import HttpResponse,HttpResponseRedirect
 from instagramApp.models import Post,Profile,Comments
 from django.contrib.auth.forms import UserCreationForm
 from .forms import ProfileForm,CommentsForm, PostForm
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate,login,logout
+
 
 # Create your views here.
 
-def register(request):
+def registerPage(request):
     if request.user.is_authenticated:
         return redirect('/')
     else:
@@ -21,7 +23,7 @@ def register(request):
         context = {'form': form}
         return render(request,'registration/registration_form.html',  context)
 
-def login(request):
+def loginPage(request):
     if request.user.is_authenticated:
         return redirect('/')
     else:
@@ -39,7 +41,7 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
-
+@login_required(login_url='login/')
 def index(request):
     posts = Post.objects.all()
     profile = Profile.objects.all()

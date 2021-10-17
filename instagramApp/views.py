@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse,HttpResponseRedirect
 from instagramApp.models import Post,Profile,Comments
 from django.contrib.auth.forms import UserCreationForm
+from .forms import ProfileForm,CommentsForm, PostForm
 from django.contrib.auth import authenticate,login,logout
 
 # Create your views here.

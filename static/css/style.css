@@ -43,3 +43,11 @@ h5, p, .icons {
 
 /* end home page */
 
+#auth{
+  display: flex;
+  
+}
+#auth a{
+  margin-left: 3rem;
+  
+}

@@ -34,6 +34,10 @@ def login(request):
         context={'form': form}
         return render(request,'registration/login.html',  context)
 
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
+
 
 def index(request):
     posts = Post.objects.all()

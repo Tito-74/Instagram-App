@@ -47,4 +47,20 @@ class Comments(models.Model):
     user = models.ForeignKey(Profile,on_delete=models.CASCADE)
     time_posted = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.comment
+
+    #Save comment
+    def save_comment(self):
+        self.save()
+
+    #Delete comment
+    def delete_comment(self):
+        self.delete()
+
+    @classmethod
+    def get_comments(cls,id):
+        comments = cls.objects.filter(image__id=id)
+        return comments
+
     

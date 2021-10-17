@@ -13,7 +13,7 @@ class Post(models.Model):
     caption = models.TextField(blank=True)
     profile = models.ForeignKey(Profile, blank=True,on_delete=models.CASCADE)
     likes = models.ManyToManyField( User, related_name = 'likes', blank=True)
-    # comments = models.CharField(max_length=100, blank=True)
+    # comments = models.ForeignKey(Comments, blank=True,on_delete=models.CASCADE)
     time_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -27,10 +27,19 @@ class Post(models.Model):
     def delete_post(self):
         self.delete()
 
+    def get_post_by_id(cls,id):
+        post = cls.objects.get(id=id)
+        return post
+
+    @classmethod
+    def get_single_photo(cls,id):
+        post = cls.objects.get(pk=id)
+        return post
+
     # @classmethod
-    # def get_profile_images(cls, profile):
-    #     images = Image.objects.filter(profile__pk=profile)
-    #     return images  
+    # def get_profile_post(cls, profile):
+    #     post = Post.objects.filter(profile__pk=profile)
+    #     return post  
 
 class Comments(models.Model):
     comment = models.TextField(blank=True)

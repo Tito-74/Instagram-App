@@ -16,23 +16,21 @@
         <div class="image">
             <img src="{{ item.image.url }}" class="card-img-top" width="500" height="450"  alt="...">
             <div class="card-body">
+                <div class="icons">
+                    <i class="fas fa-heart" style="color:red"></i>
+                    <i class="far fa-comment"></i>
+                    <i class="fal fa-location-arrow"></i>
+
+                </div>
                 <h5 class="card-title">{{ item.name }} </h5>
                 <p class="card-text">{{ item.caption }}</p>
+                <p>454{{item.comments.comment}}</p>
                 <p class="card-text"><small class="text-muted">{{ item.time_created }}</small></p>
             </div>
 
         </div>
         
       </div>
-      
-      <!-- {% for item in profile %}
-      <h1>{{item.bio}}</h1>
-      <img src="{{ item.profile_photo.url }}" alt="">
-       <h2>{{item.profile_photo}}</h2> 
-      {% endfor %}  -->
-
-   
-  
     {% empty %}
     <div class="row">
       <h2 class="text-center">There No post Items</h2>

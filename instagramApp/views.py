@@ -20,6 +20,20 @@ def register(request):
         context = {'form': form}
         return render(request,'registration/registration_form.html',  context)
 
+def login(request):
+    if request.user.is_authenticated:
+        return redirect('/')
+    else:
+        form = UserCreationForm()
+        if request.method == 'POST':
+            username=request.POST.get('username')
+            password=request.POST.get('password')
+            user = authenticate(request, username=username ,password=password)
+            if user is not None:
+                login(request, user)
+        context={'form': form}
+        return render(request,'registration/login.html',  context)
+
 
 def index(request):
     posts = Post.objects.all()

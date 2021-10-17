@@ -26,38 +26,8 @@
 
       </form>
     </div>
-
-    <!-- search form end -->
-    
-    <!-- <div class="col-sm-4 col-md-4">
-      {% if user.is_authenticated %}
-      <ul>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
-                    <span class="caret"></span>
-                </a>
-          <ul class="dropdown-menu" role="menu">
-            <li>
-              <a href="{%url 'home'%}">Home</a>
-            </li>
-            <li>
-              <a href="/accounts/password/change">Change Password</a>
-            </li>
-            <li>
-              <a href="/logout">Logout</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      {% else %}
-      <li>
-        <a class='btn btn-default' href="/login">Login</a>
-      </li>
-
-      {% endif %}
-    </div> -->
     <div class="col-sm-5 col-md-5" id="auth">
-      <h3 style="color: aliceblue;">{{request.user}}</h3>
+      <h3 style="color: aliceblue;">Hello, {{request.user}}</h3>
       <h3><a href="/logout">Logout</a></h3>
     </div>
   </div>

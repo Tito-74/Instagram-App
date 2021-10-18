@@ -17,6 +17,8 @@ class Profile(models.Model):
     #Delete image
     def delete_profile(self):
         self.delete()
+   
+
 
 
 class Post(models.Model):
@@ -47,6 +49,11 @@ class Post(models.Model):
     def get_single_photo(cls,id):
         post = cls.objects.get(pk=id)
         return post
+
+    @classmethod
+    def search_profile_post(cls,profile):
+        profile = cls.objects.filter(profile__user__icontain = profile)
+        return profile
 
     # @classmethod
     # def get_profile_post(cls, profile):

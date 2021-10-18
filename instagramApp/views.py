@@ -49,10 +49,21 @@ def index(request):
 
     return render(request,'home.html', {'posts':posts,'profile':profile ,'comments':comments})
 
+@login_required(login_url='login/')
+def create_post(request):
+    # current_user = request.user
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            # post.profile = request.user
+            post.user = request.user
+            post.save()
+        return redirect('/')
+    else:
+        form = PostForm()
+    return render(request, 'post.html', {"form": form})
 
-def created_post(request):
-
-    return render(request, 'post.html')
 
 def search_results(request):
     if 'profile' in request.GET and request.GET['profile']:

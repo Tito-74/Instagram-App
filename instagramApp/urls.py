@@ -6,7 +6,7 @@ from django.urls import path
 
 urlpatterns=[
     url('^$',views.index,name = 'home'),
-    url(r'^post/',views.created_post, name = 'post'),
+    url(r'^post/',views.create_post, name = 'post'),
     url(r'^search/', views.search_results, name='search_results'),
     path('registration/', views.registerPage, name="registration"),
     path('login/', views.loginPage, name="login"),

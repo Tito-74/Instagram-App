@@ -7,6 +7,18 @@ class Profile(models.Model):
     profile_photo = models.ImageField(upload_to='images/')
     bio = models.TextField(max_length=200, blank=True)
 
+    def __str__(self):
+        return self.user
+
+    #Save image
+    def save_profile(self):
+        self.save()
+
+    #Delete image
+    def delete_profile(self):
+        self.delete()
+
+
 class Post(models.Model):
     image = models.ImageField(upload_to='images/')
     name = models.CharField(max_length=80)

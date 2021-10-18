@@ -55,5 +55,14 @@ def created_post(request):
     return render(request, 'post.html')
 
 def search_results(request):
-   
+    if 'profile' in request.GET and request.GET['profile']:
+        user = request.GET.get("profile")
+        print(user)
+        results = Profile.search_profile(user)
+        message = f'profile'
+        return render(request, 'search.html',{'profiles': results,'message': message})
+    else:
+        message = "You haven't searched for anything, please try again"
+    return render(request, 'search.html', {'message': message})
+
     return render(request, 'all-instagram/search.html')

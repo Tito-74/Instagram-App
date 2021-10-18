@@ -25,4 +25,4 @@ code . or atom . based on your favorite text editor you have.
 ## Further help
 For any challenge using the App please don't hesitate to contact me through Email: kipkirui133@gmail.com or call me through 0714969204
 
-<a href=''>MIT license</a>
+<a href='https://github.com/Tito-74/Instagram-App/blob/master/license'>MIT license</a>

@@ -19,15 +19,12 @@ class Profile(models.Model):
         self.delete()
    
 
-
-
 class Post(models.Model):
     image = models.ImageField(upload_to='images/')
     name = models.CharField(max_length=80)
     caption = models.TextField(blank=True)
     profile = models.ForeignKey(Profile, blank=True,on_delete=models.CASCADE)
     likes = models.ManyToManyField( User, related_name = 'likes', blank=True)
-    # comments = models.ForeignKey(Comments, blank=True,on_delete=models.CASCADE)
     time_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -55,10 +52,6 @@ class Post(models.Model):
         profile = cls.objects.filter(profile__user__icontain = profile)
         return profile
 
-    # @classmethod
-    # def get_profile_post(cls, profile):
-    #     post = Post.objects.filter(profile__pk=profile)
-    #     return post  
 
 class Comments(models.Model):
     comment = models.TextField(blank=True)

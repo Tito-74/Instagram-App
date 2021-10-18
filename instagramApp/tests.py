@@ -27,3 +27,30 @@ class ProfileTestCase(TestCase):
         self.profile.save_profile()
         self.assertTrue(Profile,self.profile.user)
 
+class PostTestClass(TestCase):
+   
+    def setUp(self):
+        self.user = User.objects.create_user("username", "password")
+        self.new_profile = Profile(id = 12,profile_picture='image.png',bio='Test profile',user=self.user)
+        self.new_profile.save()
+        self.new_image = Image(image='image.png',image_caption="image", image_profile=self.new_profile)
+
+    def test_instance_true(self):
+        self.assertTrue(isinstance(self.new_image, Image))
+
+    def test_save_post(self):
+        self.new_post.save_image()
+        post = Post.objects.all()
+        self.assertTrue(len(post) == 1)
+
+    def test_delete_post(self):
+        self.new_post.save_image()
+        post = Profile.objects.all()
+        self.assertTrue(len(post) <= 1)
+
+    def test_get_post_by_id(self):
+        self.new_post.save_post()
+        post = self.new_post.get_post_by_id(self.new_post.id)
+        posts = Image.objects.filter(id=self.new_post.id)
+        self.assertTrue(post, posts)    
+

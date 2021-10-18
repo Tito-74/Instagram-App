@@ -17,6 +17,18 @@ from decouple import config,Csv
 
 
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+
+
+cloudinary.config( 
+  cloud_name = "dwofopsjd", 
+  api_key = "711236216548118", 
+  api_secret = "HV-nka5FpTRi1N5QSJm80hOT38U" 
+)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

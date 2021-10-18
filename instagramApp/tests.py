@@ -52,5 +52,29 @@ class PostTestClass(TestCase):
         self.new_post.save_post()
         post = self.new_post.get_post_by_id(self.new_post.id)
         posts = Image.objects.filter(id=self.new_post.id)
-        self.assertTrue(post, posts)    
+        self.assertTrue(post, posts)  
+
+
+    class CommentTestCase(TestCase):
+    def setUp(self):
+        self.user = User(username='Tito')
+        self.user.save()
+
+        self.new_profile = Profile(profile_picture='image.png',bio='Test profile description',user=self.user)
+        self.new_profile.save()
+        self.new_image = Image(image='image.png',image_caption="image", image_profile=self.new_profile)
+        self.comment = Comment(comment='Your Best Image', user=self.new_profile, post = self.new_image, date="14-10-2021")
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.comment, Comment))
+
+    def test_save_comment(self):
+        self.comment.save_comment()
+        comment = Comment.objects.all()
+        self.assertFalse(len(comment) > 1)
+
+    def test_delete_comment(self):
+        self.comment.save_comment()
+        comment = Comment.objects.all()
+        self.assertTrue(len(comment)  <= 1)  
 
